@@ -13,8 +13,12 @@ public class DataLoader {
 
     public void inserirDisciplina(Disciplina disciplina) { disciplinaRepository.insere(disciplina);}
 
-    public void exibirMeida()  {
+    public void exibirMedia()  {
         System.out.println(usuarioRepository.mediaIdadeAlunos());
+    }
+
+    public void exibirListaProfDisciplinas() {
+        disciplinaRepository.exibirDisciplinaPorProfessor();
     }
 
 }

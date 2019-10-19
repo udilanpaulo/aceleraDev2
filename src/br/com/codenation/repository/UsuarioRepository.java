@@ -1,6 +1,7 @@
 package br.com.codenation.repository;
 
 import br.com.codenation.domain.Aluno;
+import br.com.codenation.domain.Disciplina;
 import br.com.codenation.domain.Professor;
 import br.com.codenation.domain.Usuario;
 
@@ -42,5 +43,10 @@ public class UsuarioRepository {
                 .filter(usuario -> (usuario instanceof Aluno))
                 .mapToDouble(usuario -> Period.between(usuario.getDataNascimento(), hoje).getYears())
                 .average().orElse(0);
+//                usuarios.stream()
+//                .filter(professor -> (usuarios instanceof Professor))
+//                .map(usuario -> (Professor) usuario)
+//                .collect(Collectors.toList());
     }
+
 }
