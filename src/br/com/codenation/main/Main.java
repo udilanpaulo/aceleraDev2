@@ -30,7 +30,7 @@ public class Main {
         humanas.matricular(aluno2);
         humanas.matricular(aluno3);
 
-        Disciplina exatas = new Disciplina("Exatas", prof3, Disciplina.Tipo.EXATAS);
+        Disciplina exatas = new Disciplina("Exatas", prof, Disciplina.Tipo.EXATAS);
         exatas.matricular(aluno3);
         exatas.matricular(aluno4);
         exatas.matricular(aluno);

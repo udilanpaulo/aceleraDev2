@@ -29,13 +29,22 @@ public class DisciplinaRepository {
     }
 
     public void exibirAlunosPorProfessores() {
-        List<Professor> professores = disciplinas.stream()
+        disciplinas.stream()
                 .map(disciplina -> disciplina.getProfessor()).distinct()
-                .collect(Collectors.toList());
+                .forEach(p -> {
+                    System.out.println(p.getNome() + ", Total de alunos: " +
+                    disciplinas.stream()
+                            .filter(d -> d.getProfessor().getCpf().equals(p.getCpf()))
+                            .mapToInt(d -> d.getAlunos().size()).sum());
+                });
 
-        professores.forEach(professor -> System.out.println(professor.getNome()+" total de alunos: "+
-                disciplinas.stream().filter(disciplina ->  disciplina.getProfessor() == professor)
-                        .mapToInt(disciplina -> disciplina.getAlunos().size()).sum()
-                ));
+//        List<Professor> professores = disciplinas.stream()
+//                .map(disciplina -> disciplina.getProfessor()).distinct()
+//                .collect(Collectors.toList());
+//
+//        professores.forEach(professor -> System.out.println(professor.getNome()+" total de alunos: "+
+//                disciplinas.stream().filter(disciplina ->  disciplina.getProfessor() == professor)
+//                        .mapToInt(disciplina -> disciplina.getAlunos().size()).sum()
+//                ));
     }
 }
