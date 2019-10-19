@@ -21,4 +21,6 @@ public class DataLoader {
         disciplinaRepository.exibirDisciplinaPorProfessor();
     }
 
+    public void exibirListaAlunosPorProfessores() { disciplinaRepository.exibirAlunosPorProfessores();}
+
 }

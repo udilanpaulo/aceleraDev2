@@ -15,7 +15,25 @@ public class Disciplina {
     }
 
     private String nome;
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
     private List<Aluno> alunos = new ArrayList<Aluno>();
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
     private Professor professor;
     private Tipo tipo;
 

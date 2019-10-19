@@ -1,6 +1,7 @@
 package br.com.codenation.repository;
 
 import br.com.codenation.domain.Disciplina;
+import br.com.codenation.domain.Professor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,5 +26,16 @@ public class DisciplinaRepository {
         System.out.println("Exatas: "+disciplinas.stream()
                 .filter(disciplina -> (disciplina.getTipo() == Disciplina.Tipo.EXATAS))
                 .collect(Collectors.toList()).size());
+    }
+
+    public void exibirAlunosPorProfessores() {
+        List<Professor> professores = disciplinas.stream()
+                .map(disciplina -> disciplina.getProfessor()).distinct()
+                .collect(Collectors.toList());
+
+        professores.forEach(professor -> System.out.println(professor.getNome()+" total de alunos: "+
+                disciplinas.stream().filter(disciplina ->  disciplina.getProfessor() == professor)
+                        .mapToInt(disciplina -> disciplina.getAlunos().size()).sum()
+                ));
     }
 }
