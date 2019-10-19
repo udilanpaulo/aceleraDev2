@@ -5,6 +5,8 @@ import br.com.codenation.domain.Disciplina;
 import br.com.codenation.domain.Professor;
 import br.com.codenation.repository.UsuarioRepository;
 
+import java.security.spec.DSAGenParameterSpec;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,6 +16,12 @@ public class Main {
         Professor professor = new Professor("Gustavo", "457.455.455.12", "gusteve");
 
         Disciplina disciplina = new Disciplina("OO I", professor);
+        Disciplina disciplina1 = new Disciplina("OO2", professor);
+
+        Professor professor1 = new Professor("Gustavo2", "123.123.456.65", "gust23");
+
+        Disciplina disciplina2 = new Disciplina("Humanas", professor1);
+        Disciplina disciplina3 = new Disciplina("Humnas2", professor1);
 
 //        for (int i = 1; i < 11; i++) {
 //            disciplina.matricular(new Aluno("Paulo_"+i,"123.123.123.92", "login"+i));
