@@ -1,5 +1,7 @@
 package br.com.codenation.domain;
 
+import java.time.LocalDate;
+
 public class Aluno extends Usuario{
 
     public Integer getNumeroMatricula() {
@@ -12,7 +14,7 @@ public class Aluno extends Usuario{
 
     private Integer numeroMatricula;
 
-    public Aluno(String nome, String cpf, String login) {
-        super(nome, cpf, login);
+    public Aluno(String nome, String cpf, String login, LocalDate dataNascimento) {
+        super(nome, cpf, login, dataNascimento);
     }
 }

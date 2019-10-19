@@ -1,11 +1,16 @@
 package br.com.codenation.repository;
 
 import br.com.codenation.domain.Aluno;
+import br.com.codenation.domain.Disciplina;
 import br.com.codenation.domain.Professor;
 import br.com.codenation.domain.Usuario;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UsuarioRepository {
     private List<Usuario> usuarios = new ArrayList<>();
@@ -31,4 +36,17 @@ public class UsuarioRepository {
             }
         });
     }
+
+    public double mediaIdadeAlunos() {
+        LocalDate hoje = LocalDate.now();
+        return usuarios.stream()
+                .filter(usuario -> (usuario instanceof Aluno))
+                .mapToDouble(usuario -> Period.between(usuario.getDataNascimento(), hoje).getYears())
+                .average().orElse(0);
+//                usuarios.stream()
+//                .filter(professor -> (usuarios instanceof Professor))
+//                .map(usuario -> (Professor) usuario)
+//                .collect(Collectors.toList());
+    }
+
 }

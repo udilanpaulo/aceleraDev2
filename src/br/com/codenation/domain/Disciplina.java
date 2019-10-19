@@ -8,13 +8,29 @@ import java.util.stream.Collectors;
 
 public class Disciplina {
 
+    public enum Tipo {
+        BIOLOGICAS,
+        HUMANAS,
+        EXATAS;
+    }
+
     private String nome;
     private List<Aluno> alunos = new ArrayList<Aluno>();
     private Professor professor;
+    private Tipo tipo;
 
-    public Disciplina (String nome, Professor professor) {
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public Disciplina (String nome, Professor professor, Tipo tipo) {
         this.nome = nome;
         this.professor = professor;
+        this.setTipo(tipo);
     }
 
     public void matricular(Aluno aluno) {
